@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/https://github.com/InnaForkert/goit-react-hw-02-phonebook.git/static/css/main.7acaea2f.css",
+    "main.js": "/https://github.com/InnaForkert/goit-react-hw-02-phonebook.git/static/js/main.07d3183d.js",
+    "index.html": "/https://github.com/InnaForkert/goit-react-hw-02-phonebook.git/index.html",
+    "main.7acaea2f.css.map": "/https://github.com/InnaForkert/goit-react-hw-02-phonebook.git/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/https://github.com/InnaForkert/goit-react-hw-02-phonebook.git/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
