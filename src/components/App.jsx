@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 class App extends Component {
   state = {
     contacts: [],
+    filter: '',
   };
 
   onSubmit = (values, options) => {
@@ -17,7 +18,18 @@ class App extends Component {
     }));
   };
 
+  onSearch = e => {
+    this.setState({
+      filter: e.target.value,
+    });
+  };
+
   render() {
+    const filterNormalized = this.state.filter.toLowerCase();
+    const filteredContacts = this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filterNormalized)
+    );
+
     const Error = ({ name }) => {
       return <ErrorMessage name={name} render={message => <p>{message}</p>} />;
     };
@@ -63,9 +75,19 @@ class App extends Component {
             <button type="submit">Add contact</button>
           </Form>
         </Formik>
+        <label>
+          Search:
+          <input
+            type="text"
+            name="filter"
+            id={nanoid()}
+            value={this.state.filter}
+            onChange={this.onSearch}
+          />
+        </label>
         <h2>Contacts</h2>
         <ul>
-          {this.state.contacts.map(contact => (
+          {filteredContacts.map(contact => (
             <li key={nanoid()}>
               <p>{contact.name}</p>
               <p>{contact.number}</p>
