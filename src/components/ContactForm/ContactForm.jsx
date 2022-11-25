@@ -43,7 +43,7 @@ const ContactForm = ({ onSubmit }) => {
           Number
           <Field type="tel" name="number" key={nanoid()} />
         </label>
-        <Error name="tel" />
+        <Error name="number" />
         <button type="submit">Add contact</button>
       </Form>
     </Formik>
