@@ -11,13 +11,18 @@ class App extends Component {
   };
 
   onSubmit = (values, options) => {
-    this.setState(prevState => ({
-      contacts: [
-        { name: values.name, id: nanoid(), number: values.number },
-        ...prevState.contacts,
-      ],
-    }));
-    options.resetForm();
+    const names = this.state.contacts.map(contact => contact.name);
+    if (names.includes(values.name)) {
+      alert(`${values.name} is already in the list of contacts!`);
+    } else {
+      this.setState(prevState => ({
+        contacts: [
+          { name: values.name, id: nanoid(), number: values.number },
+          ...prevState.contacts,
+        ],
+      }));
+      options.resetForm();
+    }
   };
 
   onSearch = e => {
