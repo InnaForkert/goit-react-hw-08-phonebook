@@ -1,10 +1,11 @@
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
+import css from './ContactForm.module.css'
 
 const ContactForm = ({ onSubmit }) => {
   const Error = ({ name }) => {
-    return <ErrorMessage name={name} render={message => <p>{message}</p>} />;
+    return <ErrorMessage name={name} render={message => <p className={css.error} >{message}</p>} />;
   };
   const schema = yup.object().shape({
     name: yup
@@ -24,7 +25,7 @@ const ContactForm = ({ onSubmit }) => {
   });
   const initialValues = {
     name: '',
-    number: '+38',
+    number: '',
   };
 
   return (
@@ -34,17 +35,21 @@ const ContactForm = ({ onSubmit }) => {
       onSubmit={onSubmit}
     >
       <Form>
-        <label>
-          Name
-          <Field type="text" name="name" key={nanoid()} />
-        </label>
-        <Error name="name" />
-        <label>
-          Number
-          <Field type="tel" name="number" key={nanoid()} />
-        </label>
-        <Error name="number" />
-        <button type="submit">Add contact</button>
+        <div className={css.inputContainer}>
+          <Field type="text" name="name" key={nanoid()} className={css.input} id='name' placeholder=" " />
+          <label className={css.label} htmlFor="name">
+            Name
+          </label>
+          <Error name="name" />
+        </div>
+        <div className={css.inputContainer}>
+          <Field type="tel" name="number" key={nanoid()} className={css.input} id='number' placeholder=' ' />
+          <label className={css.label} htmlFor="number">
+            Number
+          </label>
+          <Error name="number" />
+        </div>
+        <button type="submit" className={css.submit}>Add contact</button>
       </Form>
     </Formik>
   );

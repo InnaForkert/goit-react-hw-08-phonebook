@@ -1,0 +1,33 @@
+.list {
+    list-style: circle;
+    columns: 2;
+}
+
+.list>li {
+    font-size: 20px;
+}
+
+.list>li>button {
+    display: block;
+    background-color: #6D9886;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: monospace;
+    border-radius: 24px;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 1px #393E46;
+    cursor: pointer;
+    transition: transform 250ms, box-shadow 250ms;
+}
+
+.list>li>button:hover,
+.list>li>button:focus {
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 3px #393E46;
+}
+
+p {
+    margin: 0;
+    padding: 10px;
+}
