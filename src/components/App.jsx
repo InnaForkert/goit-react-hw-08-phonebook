@@ -21,8 +21,8 @@ class App extends Component {
   };
 
   onSubmit = (values, options) => {
-    const names = this.state.contacts.map(contact => contact.name);
-    if (names.includes(values.name)) {
+    const isInList = this.state.contacts.find(contact => contact.name === values.name);
+    if (isInList) {
       alert(`${values.name} is already in the list of contacts!`);
     } else {
       this.setState(prevState => ({
