@@ -12,7 +12,7 @@ class App extends Component {
     filter: '',
   };
 
-  onSubmit = (values, options) => {
+  onSubmit = (values) => {
     const isInList = this.state.contacts.find(contact => contact.name === values.name);
     if (isInList) {
       alert(`${values.name} is already in the list of contacts!`);
@@ -23,7 +23,6 @@ class App extends Component {
           ...prevState.contacts,
         ],
       }));
-      options.resetForm();
     }
   };
 

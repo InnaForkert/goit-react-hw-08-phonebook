@@ -5,6 +5,7 @@ import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
 
 const ContactForm = ({ onSubmit }) => {
+  
   const Error = ({ name }) => {
     return (
       <ErrorMessage
@@ -13,6 +14,7 @@ const ContactForm = ({ onSubmit }) => {
       />
     );
   };
+
   const schema = yup.object().shape({
     name: yup
       .string()
@@ -29,16 +31,22 @@ const ContactForm = ({ onSubmit }) => {
         'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
       ),
   });
+
   const initialValues = {
     name: '',
     number: '',
   };
 
+  function handleSubmit(values, options) {
+    onSubmit(values);
+    options.resetForm();
+  }
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
     >
       <Form>
         <div className={css.inputContainer}>
