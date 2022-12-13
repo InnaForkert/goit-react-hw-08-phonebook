@@ -3,15 +3,7 @@ import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
-import styled from 'styled-components';
-
-const Title = styled.h1`
-  font-family: monospace;
-  font-size: 40px;
-  text-align: center;
-  color: #393E46;
-  margin-top: 50px;
-`
+import Title from './Title';
 
 class App extends Component {
   state = {
@@ -55,10 +47,10 @@ class App extends Component {
 
     return (
       <>
-        <Title>Phonebook</Title>
+        <Title text='Phonebook' />
         <ContactForm onSubmit={this.onSubmit} />
         <Filter value={this.state.filter} onChange={this.onSearch} />
-        <Title>Contacts</Title>
+        <Title text='Contacts' />
         <ContactList contacts={filteredContacts} onDelete={this.onDelete} />
       </>
     );
