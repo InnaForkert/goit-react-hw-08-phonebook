@@ -7,13 +7,29 @@ import Title from './Title';
 
 class App extends Component {
   state = {
-    contacts: [
-    ],
+    contacts: [],
     filter: '',
   };
 
-  onSubmit = (values) => {
-    const isInList = this.state.contacts.find(contact => contact.name === values.name);
+  componentDidMount = () => {
+    const storedContacts = JSON.parse(localStorage.getItem('contactList'));
+    if (storedContacts && this.state.contacts.length === 0) {
+      this.setState({
+        contacts: storedContacts,
+      });
+    }
+  };
+
+  componentDidUpdate = (_, prevState) => {
+    if (prevState.contacts.length !== this.state.length) {
+      localStorage.setItem('contactList', JSON.stringify(this.state.contacts));
+    }
+  };
+
+  onSubmit = values => {
+    const isInList = this.state.contacts.find(
+      contact => contact.name === values.name
+    );
     if (isInList) {
       alert(`${values.name} is already in the list of contacts!`);
     } else {
@@ -32,11 +48,11 @@ class App extends Component {
     });
   };
 
-  onDelete = (name) => {
-    this.setState((prevState) => ({
-      contacts: prevState.contacts.filter(contact => contact.name !== name)
-    }))
-  }
+  onDelete = name => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.name !== name),
+    }));
+  };
 
   render() {
     const filterNormalized = this.state.filter.toLowerCase();
@@ -46,10 +62,10 @@ class App extends Component {
 
     return (
       <>
-        <Title text='Phonebook' />
+        <Title text="Phonebook" />
         <ContactForm onSubmit={this.onSubmit} />
         <Filter value={this.state.filter} onChange={this.onSearch} />
-        <Title text='Contacts' />
+        <Title text="Contacts" />
         <ContactList contacts={filteredContacts} onDelete={this.onDelete} />
       </>
     );
