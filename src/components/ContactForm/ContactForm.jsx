@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/reducers';
+import { addContact } from 'redux/contacts/contactsSlice';
 
 const ContactForm = () => {
   const contacts = useSelector(state => state.contacts);

@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeContact } from 'redux/reducers';
+import { removeContact } from 'redux/contacts/contactsSlice';
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
