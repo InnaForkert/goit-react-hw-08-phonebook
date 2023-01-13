@@ -1,6 +1,5 @@
 import { nanoid } from 'nanoid';
 import css from '../ContactForm/ContactForm.module.css';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilter, setFilter } from 'redux/filter/filterReducer';
 
@@ -24,8 +23,3 @@ const Filter = () => {
   );
 };
 export default Filter;
-
-Filter.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-};

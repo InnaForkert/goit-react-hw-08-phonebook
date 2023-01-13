@@ -24,5 +24,4 @@ export default Contact;
 
 Contact.propTypes = {
   contact: PropTypes.object,
-  onDelete: PropTypes.func,
 };

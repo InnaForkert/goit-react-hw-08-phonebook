@@ -1,4 +1,3 @@
-import { getContacts } from 'redux/contacts/contactsSlice';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';

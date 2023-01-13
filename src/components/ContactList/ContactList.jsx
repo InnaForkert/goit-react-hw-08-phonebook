@@ -1,7 +1,6 @@
 import Contact from '../Contact';
 import { nanoid } from 'nanoid';
 import css from './ContactList.module.css';
-import PropTypes from 'prop-types';
 import { getContacts } from 'redux/contacts/contactsSlice';
 import { getFilter } from 'redux/filter/filterReducer';
 import { useSelector } from 'react-redux';
@@ -23,8 +22,3 @@ const ContactList = () => {
   );
 };
 export default ContactList;
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object),
-  onDelete: PropTypes.func,
-};
