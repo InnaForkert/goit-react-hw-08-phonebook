@@ -9,10 +9,6 @@ const App = () => {
   const contacts = useSelector(state => state.contacts);
   const filter = useSelector(state => state.filter);
 
-  useEffect(() => {
-    localStorage.setItem('contactList', JSON.stringify(contacts));
-  }, [contacts]);
-
   return (
     <>
       <Title text="Phonebook" />
