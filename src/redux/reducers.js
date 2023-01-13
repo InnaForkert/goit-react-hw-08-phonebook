@@ -1,21 +1,30 @@
-import { createAction, createReducer } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-export const addContact = createAction('contacts/addContact');
-export const removeContact = createAction('contacts/removeContact');
-export const setFilter = createAction('filter/setFilter');
-
-export const contactsReducer = createReducer(
-  // JSON.parse( localStorage.getItem('contactList')) ?? [],
-  [],
-  {
-    [addContact]: (state, action) => {
+export const contactsSlice = createSlice({
+  name: 'contacts',
+  initialState: [],
+  reducers: {
+    addContact(state, action) {
       state.push(action.payload);
     },
-    [removeContact]: (state, action) =>
-      state.filter(el => el.name !== action.payload),
-  }
-);
-
-export const filterReducer = createReducer('', {
-  [setFilter]: (state, action) => (state = action),
+    removeContact(state, action) {
+      return state.filter(el => el.name !== action.payload);
+    },
+  },
 });
+
+export const filterSlice = createSlice({
+  name: 'filter',
+  initialState: '',
+  reducers: {
+    setFilter(_, action) {
+      return action.payload;
+    },
+  },
+});
+
+export const { addContact, removeContact } = contactsSlice.actions;
+export const { setFilter } = filterSlice.actions;
+
+export const contactsReducer = contactsSlice.reducer;
+export const filterReducer = filterSlice.reducer;
