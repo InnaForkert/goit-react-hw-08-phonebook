@@ -2,11 +2,13 @@ import Contact from '../Contact';
 import { nanoid } from 'nanoid';
 import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
+import { getContacts } from 'redux/contacts/contactsSlice';
+import { getFilter } from 'redux/filter/filterReducer';
 import { useSelector } from 'react-redux';
 
 const ContactList = () => {
-  const contacts = useSelector(state => state.contacts);
-  const filter = useSelector(state => state.filter);
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
 
   const filtered = contacts.filter(el =>
     el.name.toLowerCase().includes(filter.toLowerCase())

@@ -1,19 +1,15 @@
+import { getContacts } from 'redux/contacts/contactsSlice';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
 import Title from './Title';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 const App = () => {
-  const contacts = useSelector(state => state.contacts);
-  const filter = useSelector(state => state.filter);
-
   return (
     <>
       <Title text="Phonebook" />
       <ContactForm />
-      <Filter value={filter} />
+      <Filter />
       <Title text="Contacts" />
       <ContactList />
     </>
