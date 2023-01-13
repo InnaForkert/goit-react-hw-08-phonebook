@@ -1,16 +1,21 @@
 import { nanoid } from 'nanoid';
 import css from '../ContactForm/ContactForm.module.css';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilter } from 'redux/reducers';
 
-const Filter = ({ value, onChange }) => {
+const Filter = () => {
+  const dispatch = useDispatch();
+  const filter = useSelector(state => state.filter);
+
   return (
     <div className={css.inputContainer}>
       <input
         type="text"
         name="filter"
         id={nanoid()}
-        value={value}
-        onChange={onChange}
+        value={filter}
+        onChange={e => dispatch(setFilter(e.target.value))}
         className={css.input}
         placeholder=" "
       />

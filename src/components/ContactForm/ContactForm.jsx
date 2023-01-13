@@ -3,9 +3,13 @@ import * as yup from 'yup';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/reducers';
 
-const ContactForm = ({ onSubmit }) => {
-  
+const ContactForm = () => {
+  const contacts = useSelector(state => state.contacts);
+  const dispatch = useDispatch();
+
   const Error = ({ name }) => {
     return (
       <ErrorMessage
@@ -38,7 +42,18 @@ const ContactForm = ({ onSubmit }) => {
   };
 
   function handleSubmit(values, options) {
-    onSubmit(values);
+    const isInList = contacts.find(contact => contact.name === values.name);
+    if (isInList) {
+      alert(`${values.name} is already in the list of contacts!`);
+    } else {
+      dispatch(
+        addContact({
+          name: values.name,
+          id: nanoid(),
+          number: values.number,
+        })
+      );
+    }
     options.resetForm();
   }
 

@@ -1,7 +1,11 @@
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeContact } from 'redux/reducers';
 
-const Contact = ({ contact, onDelete }) => {
+const Contact = ({ contact }) => {
+  const dispatch = useDispatch();
+
   return (
     <li key={nanoid()}>
       <p>
@@ -9,9 +13,7 @@ const Contact = ({ contact, onDelete }) => {
       </p>
       <button
         type="button"
-        onClick={() => {
-          onDelete(contact.name);
-        }}
+        onClick={() => dispatch(removeContact(contact.name))}
       >
         Delete
       </button>
