@@ -1,11 +1,11 @@
 import { nanoid } from 'nanoid';
 import css from '../ContactForm/ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilter, setFilter } from 'redux/filter/filterReducer';
+import { selectFilter, setFilter } from 'redux/filter/filterReducer';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
 
   return (
     <div className={css.inputContainer}>
