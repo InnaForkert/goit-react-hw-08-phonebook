@@ -1,8 +1,12 @@
 import Contact from '../Contact';
 import { nanoid } from 'nanoid';
 import css from './ContactList.module.css';
-import { selectContacts, selectError, selectIsLoading } from 'redux/contacts/contactsSlice';
-import { selectFilter } from 'redux/filter/filterReducer';
+import {
+  selectContacts,
+  selectError,
+  selectIsLoading,
+} from 'redux/contacts/contactsSlice';
+import { selectFilter } from 'redux/filter/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/utils/getContacts';
@@ -16,7 +20,7 @@ const ContactList = () => {
 
   useEffect(() => {
     dispatch(fetchContacts());
-  }, [dispatch])
+  }, [dispatch]);
 
   const filtered = contacts.filter(el =>
     el.name.toLowerCase().includes(filter.toLowerCase())
@@ -24,11 +28,12 @@ const ContactList = () => {
 
   return (
     <>
-    <ul className={css.list}>
-      {filtered.map(contact => (
-        <Contact contact={contact} key={nanoid()} />
-      ))}
-    </ul></>
+      <ul className={css.list}>
+        {filtered.map(contact => (
+          <Contact contact={contact} key={nanoid()} />
+        ))}
+      </ul>
+    </>
   );
 };
 export default ContactList;

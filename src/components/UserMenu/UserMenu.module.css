@@ -1,0 +1,29 @@
+.submit {
+  margin-inline: auto;
+  display: block;
+  background-color: beige;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: monospace;
+  border-radius: 24px;
+  border: none;
+  outline: none;
+  box-shadow: 1px 1px 1px #393e46;
+  cursor: pointer;
+  transition: transform 250ms, box-shadow 250ms;
+  margin-bottom: 15px;
+  color: black;
+  text-decoration: none;
+}
+
+.submit:hover,
+.submit:focus {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 3px #393e46;
+}
+
+.text {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+}
