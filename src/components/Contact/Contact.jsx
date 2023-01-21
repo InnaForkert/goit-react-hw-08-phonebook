@@ -10,7 +10,7 @@ const Contact = ({ contact }) => {
   return (
     <li key={nanoid()} className={css.listItem}>
       <p>{contact.name}:</p>
-      <p>{contact.phone}</p>
+      <p>{contact.number}</p>
       <button type="button" onClick={() => dispatch(deleteContact(contact))}>
         Delete
       </button>

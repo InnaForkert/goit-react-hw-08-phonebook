@@ -1,10 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import css from './SignUp.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from 'redux/utils/createUser';
+import { selectIsLoggedIn } from 'redux/user/userSlice';
+import { useEffect } from 'react';
 
 function SignUp() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn, navigate]);
 
   function handleSignUp(e) {
     e.preventDefault();
@@ -13,7 +23,11 @@ function SignUp() {
       email: e.target.elements[1].value,
       password: e.target.elements[2].value,
     };
-    dispatch(createUser(user));
+    if (!user.email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+      alert('Invalid email!');
+    } else {
+      dispatch(createUser(user));
+    }
   }
 
   return (
@@ -29,7 +43,7 @@ function SignUp() {
       <label className={css.label} htmlFor="password">
         Password
       </label>
-      <input type="password" className={css.input} />
+      <input type="password" className={css.input} minLength="8" />
       <button className={css.submit} type="submit">
         Sign Up
       </button>
@@ -37,6 +51,7 @@ function SignUp() {
       <Link to="/login" className={css.submit}>
         Login
       </Link>
+      {isLoggedIn && <p>Success!</p>}
     </form>
   );
 }
