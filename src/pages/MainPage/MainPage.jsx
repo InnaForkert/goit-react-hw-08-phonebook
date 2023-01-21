@@ -8,6 +8,7 @@ import { CircleLoader } from 'react-spinners';
 import { selectIsLoading } from 'redux/contacts/contactsSlice';
 import { selectIsLoggedIn } from 'redux/user/userSlice';
 import css from './MainPage.module.css';
+import { useNavigate } from 'react-router';
 
 const override = {
   position: 'absolute',
@@ -19,6 +20,12 @@ const override = {
 function MainPage() {
   const loading = useSelector(selectIsLoading);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const navigate = useNavigate();
+
+  if (!isLoggedIn) {
+    navigate('/login');
+  }
+
   return (
     <>
       <AppBar />
