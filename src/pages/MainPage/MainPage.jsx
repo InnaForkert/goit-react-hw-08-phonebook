@@ -9,6 +9,7 @@ import { selectIsLoading } from 'redux/contacts/contactsSlice';
 import { selectIsLoggedIn } from 'redux/user/userSlice';
 import css from './MainPage.module.css';
 import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
 const override = {
   position: 'absolute',
@@ -22,9 +23,11 @@ function MainPage() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const navigate = useNavigate();
 
-  if (!isLoggedIn) {
-    navigate('/login');
-  }
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <>
