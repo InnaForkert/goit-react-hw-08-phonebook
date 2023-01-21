@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.e7c2c000.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.e9f5a0f9.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.585147ff.js",
     "static/css/299.adfa0124.chunk.css": "/goit-react-hw-08-phonebook/static/css/299.adfa0124.chunk.css",
-    "static/js/299.8ea984d5.chunk.js": "/goit-react-hw-08-phonebook/static/js/299.8ea984d5.chunk.js",
+    "static/js/299.6508dc5f.chunk.js": "/goit-react-hw-08-phonebook/static/js/299.6508dc5f.chunk.js",
     "static/css/4.338f1f51.chunk.css": "/goit-react-hw-08-phonebook/static/css/4.338f1f51.chunk.css",
     "static/js/4.6d32a096.chunk.js": "/goit-react-hw-08-phonebook/static/js/4.6d32a096.chunk.js",
     "static/css/12.375a114b.chunk.css": "/goit-react-hw-08-phonebook/static/css/12.375a114b.chunk.css",
@@ -11,9 +11,9 @@
     "static/js/59.cd9c5afd.chunk.js": "/goit-react-hw-08-phonebook/static/js/59.cd9c5afd.chunk.js",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.e7c2c000.css.map": "/goit-react-hw-08-phonebook/static/css/main.e7c2c000.css.map",
-    "main.e9f5a0f9.js.map": "/goit-react-hw-08-phonebook/static/js/main.e9f5a0f9.js.map",
+    "main.585147ff.js.map": "/goit-react-hw-08-phonebook/static/js/main.585147ff.js.map",
     "299.adfa0124.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/299.adfa0124.chunk.css.map",
-    "299.8ea984d5.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/299.8ea984d5.chunk.js.map",
+    "299.6508dc5f.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/299.6508dc5f.chunk.js.map",
     "4.338f1f51.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/4.338f1f51.chunk.css.map",
     "4.6d32a096.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/4.6d32a096.chunk.js.map",
     "12.375a114b.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/12.375a114b.chunk.css.map",
@@ -22,6 +22,6 @@
   },
   "entrypoints": [
     "static/css/main.e7c2c000.css",
-    "static/js/main.e9f5a0f9.js"
+    "static/js/main.585147ff.js"
   ]
 }
